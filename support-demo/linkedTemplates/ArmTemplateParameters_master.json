@@ -65,9 +65,6 @@
 		"6493261046722475_50_accessToken": {
 			"value": ""
 		},
-		"AzureBlobStorage1_connectionString": {
-			"value": ""
-		},
 		"AzureDatabricks_accessToken": {
 			"value": ""
 		},

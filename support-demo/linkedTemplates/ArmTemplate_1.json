@@ -7,10 +7,6 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "support-demo"
 		},
-		"AzureBlobStorage1_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage1'"
-		},
 		"AzureDatabricks_accessToken": {
 			"type": "secureString",
 			"metadata": "Secure string for 'accessToken' of 'AzureDatabricks'"
@@ -49,24 +45,10 @@
 	},
 	"resources": [
 		{
-			"name": "[concat(parameters('factoryName'), '/AzureBlobStorage1')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureBlobStorage",
-				"typeProperties": {
-					"connectionString": "[parameters('AzureBlobStorage1_connectionString')]"
-				}
-			},
-			"dependsOn": []
-		},
-		{
 			"name": "[concat(parameters('factoryName'), '/AzureDatabricks')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "Connect to workspace",
 				"annotations": [],
 				"type": "AzureDatabricks",
 				"typeProperties": {
@@ -75,7 +57,12 @@
 						"type": "SecureString",
 						"value": "[parameters('AzureDatabricks_accessToken')]"
 					},
-					"existingClusterId": "0816-231109-albs775"
+					"newClusterNodeType": "Standard_DS3_v2",
+					"newClusterNumOfWorker": "1",
+					"newClusterSparkEnvVars": {
+						"PYSPARK_PYTHON": "/databricks/python3/bin/python3"
+					},
+					"newClusterVersion": "5.5.x-scala2.11"
 				}
 			},
 			"dependsOn": []
@@ -3219,9 +3206,9 @@
 						},
 						"userProperties": [],
 						"typeProperties": {
-							"notebookPath": "/Users/b-quleng@microsoft.com/test",
+							"notebookPath": "/Users/xin.wang@databricks.com/tech_talk",
 							"baseParameters": {
-								"TableName": "adf_demo"
+								"print": "hello world"
 							},
 							"libraries": [
 								{
@@ -3242,7 +3229,7 @@
 							]
 						},
 						"linkedServiceName": {
-							"referenceName": "Walmart_repo",
+							"referenceName": "AzureDatabricks",
 							"type": "LinkedServiceReference"
 						}
 					}
@@ -3250,7 +3237,7 @@
 				"annotations": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/Walmart_repo')]"
+				"[concat(variables('factoryId'), '/linkedServices/AzureDatabricks')]"
 			]
 		},
 		{
