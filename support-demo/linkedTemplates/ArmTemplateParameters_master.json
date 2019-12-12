@@ -68,10 +68,16 @@
 		"AzureDatabricks_accessToken": {
 			"value": ""
 		},
+		"AzureDatabricks1_accessToken": {
+			"value": ""
+		},
 		"Walmart_accessToken": {
 			"value": ""
 		},
 		"Walmart_repo_accessToken": {
+			"value": ""
+		},
+		"test_30_accessToken": {
 			"value": ""
 		},
 		"walmart_100_accessToken": {

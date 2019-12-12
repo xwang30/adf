@@ -91,6 +91,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accessToken' of 'AzureDatabricks'"
 		},
+		"AzureDatabricks1_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'AzureDatabricks1'"
+		},
 		"Walmart_accessToken": {
 			"type": "secureString",
 			"metadata": "Secure string for 'accessToken' of 'Walmart'"
@@ -98,6 +102,10 @@
 		"Walmart_repo_accessToken": {
 			"type": "secureString",
 			"metadata": "Secure string for 'accessToken' of 'Walmart_repo'"
+		},
+		"test_30_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'test_30'"
 		},
 		"walmart_100_accessToken": {
 			"type": "secureString",
@@ -227,11 +235,17 @@
 					"AzureDatabricks_accessToken": {
 						"value": "[parameters('AzureDatabricks_accessToken')]"
 					},
+					"AzureDatabricks1_accessToken": {
+						"value": "[parameters('AzureDatabricks1_accessToken')]"
+					},
 					"Walmart_accessToken": {
 						"value": "[parameters('Walmart_accessToken')]"
 					},
 					"Walmart_repo_accessToken": {
 						"value": "[parameters('Walmart_repo_accessToken')]"
+					},
+					"test_30_accessToken": {
+						"value": "[parameters('test_30_accessToken')]"
 					},
 					"walmart_100_accessToken": {
 						"value": "[parameters('walmart_100_accessToken')]"
@@ -252,6 +266,26 @@
 			},
 			"dependsOn": [
 				"[resourceId('Microsoft.Resources/deployments', 'ArmTemplate_0')]"
+			]
+		},
+		{
+			"name": "ArmTemplate_2",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_2.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'ArmTemplate_1')]"
 			]
 		}
 	]
