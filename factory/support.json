@@ -1,0 +1,12 @@
+{
+	"name": "support",
+	"properties": {
+		"globalParameters": {
+			"westus2": {
+				"type": "string",
+				"value": "https://adb-6935536957980197.17.azuredatabricks.net/"
+			}
+		}
+	},
+	"location": "eastus"
+}
