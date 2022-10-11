@@ -19,7 +19,10 @@
 				},
 				"linkedServiceName": {
 					"referenceName": "AzureDatabricks1",
-					"type": "LinkedServiceReference"
+					"type": "LinkedServiceReference",
+					"parameters": {
+						"workspace_url": "https://adb-6935536957980197.17.azuredatabricks.net/"
+					}
 				}
 			}
 		],
