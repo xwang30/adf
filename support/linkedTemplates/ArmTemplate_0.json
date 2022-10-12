@@ -50,10 +50,15 @@
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
 			"properties": {
+				"parameters": {
+					"workspace_url": {
+						"type": "string"
+					}
+				},
 				"annotations": [],
 				"type": "AzureDatabricks",
 				"typeProperties": {
-					"domain": "https://adb-6935536957980197.17.azuredatabricks.net",
+					"domain": "@linkedService().workspace_url",
 					"accessToken": {
 						"type": "SecureString",
 						"value": "[parameters('AzureDatabricks1_accessToken')]"
@@ -209,11 +214,51 @@
 						},
 						"userProperties": [],
 						"typeProperties": {
-							"notebookPath": "/Users/xin.wang@databricks.com/adf test"
+							"notebookPath": "/Users/xin.wang@databricks.com/succeed"
 						},
 						"linkedServiceName": {
 							"referenceName": "AzureDatabricks1",
-							"type": "LinkedServiceReference"
+							"type": "LinkedServiceReference",
+							"parameters": {
+								"workspace_url": {
+									"value": "@pipeline().globalParameters.westus2",
+									"type": "Expression"
+								}
+							}
+						}
+					},
+					{
+						"name": "Jar1",
+						"type": "DatabricksSparkJar",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"mainClassName": "com.test.JobRunner",
+							"parameters": [
+								"/FileStore/tables/example.json"
+							],
+							"libraries": [
+								{
+									"jar": "dbfs:/FileStore/tables/test_etls_assembly_1_0-fed11.jar"
+								}
+							]
+						},
+						"linkedServiceName": {
+							"referenceName": "AzureDatabricks1",
+							"type": "LinkedServiceReference",
+							"parameters": {
+								"workspace_url": {
+									"value": "@pipeline().globalParameters.westus2",
+									"type": "Expression"
+								}
+							}
 						}
 					}
 				],
