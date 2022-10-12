@@ -15,7 +15,7 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"notebookPath": "/Users/xin.wang@databricks.com/adf test"
+					"notebookPath": "/Users/xin.wang@databricks.com/succeed"
 				},
 				"linkedServiceName": {
 					"referenceName": "AzureDatabricks1",
@@ -43,7 +43,7 @@
 				"typeProperties": {
 					"mainClassName": "com.test.JobRunner",
 					"parameters": [
-						"/dbfs/FileStore/tables/example.json"
+						"/FileStore/tables/example.json"
 					],
 					"libraries": [
 						{
