@@ -15,7 +15,12 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"notebookPath": "/Users/xin.wang@databricks.com/succeed"
+					"notebookPath": "/Users/xin.wang@databricks.com/succeed",
+					"libraries": [
+						{
+							"jar": ""
+						}
+					]
 				},
 				"linkedServiceName": {
 					"referenceName": "AzureDatabricks1",
