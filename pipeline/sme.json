@@ -61,6 +61,35 @@
 						}
 					}
 				}
+			},
+			{
+				"name": "Python1",
+				"type": "DatabricksSparkPython",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pythonFile": "dbfs:/im/notebooks/notebook-workflow-example.py",
+					"parameters": [
+						"\"foo\",\"bar\",\"baz\""
+					]
+				},
+				"linkedServiceName": {
+					"referenceName": "AzureDatabricks1",
+					"type": "LinkedServiceReference",
+					"parameters": {
+						"workspace_url": {
+							"value": "@pipeline().globalParameters.westus2",
+							"type": "Expression"
+						}
+					}
+				}
 			}
 		],
 		"annotations": []
