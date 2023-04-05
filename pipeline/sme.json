@@ -95,6 +95,29 @@
 						}
 					}
 				}
+			},
+			{
+				"name": "Web1",
+				"type": "WebActivity",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"url": "https://adb-6935536957980197.17.azuredatabricks.net/api/2.0/jobs/runs/get?run_id=35289573",
+					"method": "GET",
+					"linkedServices": [
+						{
+							"referenceName": "AzureDatabricks1",
+							"type": "LinkedServiceReference"
+						}
+					]
+				}
 			}
 		],
 		"annotations": []
