@@ -15,12 +15,7 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"notebookPath": "/Users/xin.wang@databricks.com/succeed",
-					"libraries": [
-						{
-							"jar": ""
-						}
-					]
+					"notebookPath": "/Users/xin.wang@databricks.com/succeed"
 				},
 				"linkedServiceName": {
 					"referenceName": "AzureDatabricks1",
@@ -30,6 +25,27 @@
 							"value": "@pipeline().globalParameters.westus2",
 							"type": "Expression"
 						}
+					}
+				}
+			},
+			{
+				"name": "Web1",
+				"type": "WebActivity",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"url": "https://adb-6935536957980197.17.azuredatabricks.net",
+					"method": "POST",
+					"authentication": {
+						"type": "Basic",
+						"username": "token"
 					}
 				}
 			}
