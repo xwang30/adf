@@ -69,14 +69,6 @@
 							"method": "GET",
 							"headers": {
 								"Authorization": "Bearer dapi844090397caaf3ab7a919d8443f6b2ad"
-							},
-							"authentication": {
-								"type": "Basic",
-								"username": "token",
-								"password": {
-									"type": "SecureString",
-									"value": "**********"
-								}
 							}
 						}
 					}
