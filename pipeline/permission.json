@@ -54,7 +54,7 @@
 					},
 					"method": "PATCH",
 					"headers": {
-						"Authorization": "Bearer dapi844090397caaf3ab7a919d8443f6b2ad"
+						"Authorization": "Bearer xxx"
 					},
 					"body": {
 						"access_control_list": [
