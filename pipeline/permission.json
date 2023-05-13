@@ -31,7 +31,14 @@
 			{
 				"name": "Web1",
 				"type": "WebActivity",
-				"dependsOn": [],
+				"dependsOn": [
+					{
+						"activity": "Notebook1",
+						"dependencyConditions": [
+							"Completed"
+						]
+					}
+				],
 				"policy": {
 					"timeout": "0.12:00:00",
 					"retry": 0,
@@ -42,9 +49,17 @@
 				"userProperties": [],
 				"typeProperties": {
 					"url": "https://adb-6935536957980197.17.azuredatabricks.net/api/2.0/clusters/list",
-					"method": "GET",
+					"method": "PATCH",
 					"headers": {
 						"Authorization": "Bearer dapi844090397caaf3ab7a919d8443f6b2ad"
+					},
+					"body": {
+						"access_control_list": [
+							{
+								"user_name": "wx6698@gmail.com",
+								"permission_level": "CAN_VIEW"
+							}
+						]
 					}
 				}
 			}
