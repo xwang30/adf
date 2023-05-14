@@ -53,22 +53,22 @@
 						}
 					},
 					{
-						"name": "Web1",
-						"type": "WebActivity",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "0.12:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
+						"name": "Set variable1",
+						"type": "SetVariable",
+						"dependsOn": [
+							{
+								"activity": "Notebook1",
+								"dependencyConditions": [
+									"Completed"
+								]
+							}
+						],
 						"userProperties": [],
 						"typeProperties": {
-							"url": "https://adb-6935536957980197.17.azuredatabricks.net/api/2.0/clusters/list",
-							"method": "GET",
-							"headers": {
-								"Authorization": "Bearer dapi844090397caaf3ab7a919d8443f6b2ad"
+							"variableName": "job_id",
+							"value": {
+								"value": "@activity('Notebook1').output.runPageUrl",
+								"type": "Expression"
 							}
 						}
 					}
@@ -76,6 +76,11 @@
 				"policy": {
 					"elapsedTimeMetric": {},
 					"cancelAfter": {}
+				},
+				"variables": {
+					"job_id": {
+						"type": "String"
+					}
 				},
 				"annotations": []
 			},
