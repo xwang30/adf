@@ -63,7 +63,7 @@
 				"typeProperties": {
 					"variableName": "intermidiate",
 					"value": {
-						"value": "@substring(activity('Notebook1').output.runPageUrl,72,31)",
+						"value": "@substring(activity('Notebook1').output.runPageUrl,76,31)",
 						"type": "Expression"
 					}
 				}
