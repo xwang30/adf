@@ -57,7 +57,7 @@
 						"type": "SetVariable",
 						"dependsOn": [
 							{
-								"activity": "Notebook1",
+								"activity": "Set variable1_copy1",
 								"dependencyConditions": [
 									"Completed"
 								]
@@ -67,7 +67,27 @@
 						"typeProperties": {
 							"variableName": "job_id",
 							"value": {
-								"value": "@last(split(activity('Notebook1').output.runPageUrl,'/'))",
+								"value": "@first(split(variables('intermidiate'),'/'))",
+								"type": "Expression"
+							}
+						}
+					},
+					{
+						"name": "Set variable1_copy1",
+						"type": "SetVariable",
+						"dependsOn": [
+							{
+								"activity": "Notebook1",
+								"dependencyConditions": [
+									"Completed"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"variableName": "intermidiate",
+							"value": {
+								"value": "@substring(activity('Notebook1').output.runPageUrl,95,20)",
 								"type": "Expression"
 							}
 						}
@@ -79,6 +99,9 @@
 				},
 				"variables": {
 					"job_id": {
+						"type": "String"
+					},
+					"intermidiate": {
 						"type": "String"
 					}
 				},
