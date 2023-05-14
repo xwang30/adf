@@ -125,7 +125,7 @@
 						"typeProperties": {
 							"variableName": "job_id",
 							"value": {
-								"value": "@last(split(activity('Notebook1').output.runPageUrl,'/'))",
+								"value": "@activity('Notebook1').output.runPageUrl",
 								"type": "Expression"
 							}
 						}
