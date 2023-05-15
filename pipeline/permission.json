@@ -67,6 +67,44 @@
 						"type": "Expression"
 					}
 				}
+			},
+			{
+				"name": "Web1",
+				"type": "WebActivity",
+				"dependsOn": [
+					{
+						"activity": "Set variable1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"url": {
+						"value": "https://adb-6935536957980197.17.azuredatabricks.net/permissions/job/@variables('job_id')",
+						"type": "Expression"
+					},
+					"method": "POST",
+					"headers": {
+						"Authorization": "Bearer dapi6b3494c3c21f379e8a38c2c0d33d18dc"
+					},
+					"body": {
+						"access_control_list": [
+							{
+								"user_name": "wx6698@gmail.com",
+								"permission_level": "CAN_VIEW"
+							}
+						]
+					}
+				}
 			}
 		],
 		"variables": {
