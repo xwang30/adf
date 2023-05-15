@@ -89,7 +89,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"url": {
-						"value": "https://adb-6935536957980197.17.azuredatabricks.net/permissions/job/@variables('job_id')",
+						"value": "https://adb-6935536957980197.17.azuredatabricks.net/api/2.0/permissions/job/@variables('job_id')",
 						"type": "Expression"
 					},
 					"method": "PATCH",
