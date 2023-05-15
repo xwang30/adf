@@ -89,10 +89,10 @@
 				"userProperties": [],
 				"typeProperties": {
 					"url": {
-						"value": "https://adb-6935536957980197.17.azuredatabricks.net/permissions/job/1111473881072077",
+						"value": "@https://adb-6935536957980197.17.azuredatabricks.net/permissions/job/variables('job_id')",
 						"type": "Expression"
 					},
-					"method": "POST",
+					"method": "PATCH",
 					"headers": {
 						"Authorization": "Bearer dapi6b3494c3c21f379e8a38c2c0d33d18dc"
 					},
